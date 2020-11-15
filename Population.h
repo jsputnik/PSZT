@@ -14,7 +14,7 @@ class Population
     Population(int population_size); //initialise population
     int return_size();
     void selection();
-    void crossover(vector <Specimen> &v1, vector <Specimen> &v2, int number);
+    void crossover(vector <bool> &v1, vector <bool> &v2, int number);
    // void crossing_and_mutation();
 };
 

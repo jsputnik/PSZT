@@ -12,7 +12,7 @@ int Population::return_size() {
     return size;
 }
 
-void Population::crossover(vector <Specimen> &v1, vector <Specimen> &v2, int number)
+void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
 {
     vector <bool> temp;
     temp.insert(temp.end(), v1.begin(), v1.begin() + number);
