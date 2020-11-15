@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1605468009 source:c:\users\iwo\documents\pw\pszt\cards\population.cpp
+	"Population.h"
+	<iostream>
+
+1605467990 c:\users\iwo\documents\pw\pszt\cards\population.h
+	"Specimen.h"
+	<vector>
+
+1605467947 c:\users\iwo\documents\pw\pszt\cards\specimen.h
+	<iostream>
+	<vector>
+
+1605467970 source:c:\users\iwo\documents\pw\pszt\cards\specimen.cpp
+	"Specimen.h"
+
