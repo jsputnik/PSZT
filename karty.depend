@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1605459981 source:c:\users\iwo\documents\pw\pszt\karty\helloworld.cpp
+	<iostream>
+
+1605460212 source:c:\users\iwo\documents\pw\pszt\karty\main.cpp
+	<iostream>
+	"HelloWorld.h"
+
+1605460221 c:\users\iwo\documents\pw\pszt\karty\helloworld.h
+	<iostream>
+
