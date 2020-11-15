@@ -29,7 +29,7 @@ int main() {
     pop.specimens[1].element.push_back(1);
     pop.specimens[1].element.push_back(1);
 
-    pop.crossover(pop.specimens[0].element, pop.specimens[1].element, 2);
+    pop.mutate(pop.specimens[0].element);
 
 
     for(int i=0;i<pop.specimens[0].element.size();i++)
@@ -37,10 +37,10 @@ int main() {
         cout<<pop.specimens[0].element[i]<<endl;
     }
     cout<<endl;
-    for(int i=0;i<pop.specimens[1].element.size();i++)
+   /* for(int i=0;i<pop.specimens[1].element.size();i++)
     {
         cout<<pop.specimens[1].element[i]<<endl;
-    }
+    }*/
 
 
     /*p = initialise();

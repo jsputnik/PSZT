@@ -9,13 +9,14 @@ class Population
     public:
     vector < Specimen > specimens;
     int size;
+    vector < int > mutationProbability;
 
     public:
     Population(int population_size); //initialise population
     int return_size();
     void selection();
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);
-   // void crossing_and_mutation();
+    void mutate(vector <bool> &v1);
 };
 
 #endif // POPULATION_H_INCLUDED
