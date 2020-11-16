@@ -22,6 +22,10 @@ void Population::print() {
     }
     std::cout << "hi" << std::endl;
     std::cout << "hi2" << std::endl;
+<<<<<<< HEAD
+=======
+    std::cout << "hi3" << std::endl;
+>>>>>>> asd
 }
 
 void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
