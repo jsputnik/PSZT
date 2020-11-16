@@ -9,7 +9,14 @@
 *****************************************/
 Specimen::Specimen(int card_quantity) {
     for (int i = 0; i < card_quantity; ++i) {
-
-        //element.push_back()
+        int value = rand() % 2;
+        element.push_back(value);
     }
+}
+
+void Specimen::print() {
+    for (int i = 0; i <element.size(); ++i) {
+        std::cout << element[i] << "|";
+    }
+    std::cout << std:: endl;
 }

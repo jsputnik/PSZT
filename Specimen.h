@@ -14,6 +14,7 @@ class Specimen
 public:
     Specimen(int card_quantity); //initialise a single specimen
     void gradeMe();
+    void print();
 };
 
 #endif // SPECIMEN_H_INCLUDED

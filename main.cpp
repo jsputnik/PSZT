@@ -9,8 +9,9 @@ using namespace std;
 int main() {
     srand(time(nullptr));
     vector <Population> population_list;
-    Population pop(20);
+    Population pop(20, 10);
     population_list.push_back(pop);
+    pop.print();
     int pm = 0;
     int pc = 0;
     int mu = 0;

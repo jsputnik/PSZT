@@ -12,7 +12,8 @@ class Population
     vector < int > mutationProbability;
 
     public:
-    Population(int population_size); //initialise population
+    Population(int population_size, int card_quantity); //initialise population
+    void print();
     int return_size();
     void selection();
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);

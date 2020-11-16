@@ -1,11 +1,12 @@
 #include "Population.h"
 #include <iostream>
 
-Population::Population(int population_size) {
+Population::Population(int population_size, int card_quantity) {
     size = population_size;
     int temp = 100;
     for (int i = 0; i < population_size; ++i) {
-        specimens.push_back(false);
+        Specimen spec(card_quantity);
+        specimens.push_back(spec);
         mutationProbability.push_back(temp);
         temp *= 0.8;
     }
@@ -13,6 +14,12 @@ Population::Population(int population_size) {
 
 int Population::return_size() {
     return size;
+}
+
+void Population::print() {
+    for (int i = 0; i < size; ++i) {
+        specimens[i].print();
+    }
 }
 
 void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
