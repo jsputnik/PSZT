@@ -8,18 +8,17 @@ class Population
 {
     public:
     vector < Specimen > specimens;
-    int size;
     vector < int > mutationProbability;
 
     public:
-    Population(int population_size, int card_quantity); //initialise population
+    Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise and grade population
     void print();
-    int return_size();
-    Population selection();
+    Population selection(double sum_a_goal, double product_b_goal, double match_level_goal);
     void singleCrossover(int number);
     void singleCrossover();//crossover in half
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);
     void mutate(vector <bool> &v1);
+    void update_population(double sum_a_goal, double product_b_goal, double match_level_goal); //use to fill/update all of specimen's fields in whole population
 };
 
 #endif // POPULATION_H_INCLUDED
