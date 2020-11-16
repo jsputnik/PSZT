@@ -19,4 +19,5 @@ void Specimen::print() {
         std::cout << element[i] << "|";
     }
     std::cout << std:: endl;
+    std::cout << std:: endl;
 }

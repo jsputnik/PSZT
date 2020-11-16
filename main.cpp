@@ -7,6 +7,7 @@
 using namespace std;
 
 int main() {
+    std::cout << std:: endl;
     srand(time(nullptr));
     vector <Population> population_list;
     Population pop(20, 10);
