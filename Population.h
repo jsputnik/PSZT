@@ -9,7 +9,6 @@ class Population
     public:
     vector < Specimen > specimens;
     int size;
-    int dummy;
     vector < int > mutationProbability;
 
     public:

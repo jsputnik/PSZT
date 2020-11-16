@@ -10,7 +10,6 @@ class Specimen
     public:
     vector < bool > element;
     float grade;
-    int dummy;
 
 public:
     Specimen(int card_quantity); //initialise a single specimen
