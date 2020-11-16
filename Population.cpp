@@ -20,6 +20,9 @@ void Population::print() {
     for (int i = 0; i < size; ++i) {
         specimens[i].print();
     }
+    std::cout << "hi" << std::endl;
+    std::cout << "hi2" << std::endl;
+    std::cout << "hi3" << std::endl;
 }
 
 void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
