@@ -43,6 +43,37 @@ void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
 
 }
 
+void Population::singleCrossover(int number)
+{
+    for(int i=0; i<(specimens.size()/2); i++)
+    {
+        crossover(specimens[2*i].element, specimens[2*i+1].element, number);
+    }
+}
+
+void Population::singleCrossover()
+{
+    int number = specimens.size()/2;
+    for(int i=0; i<(specimens.size()/2); i++)
+    {
+        crossover(specimens[2*i].element, specimens[2*i+1].element, number);
+    }
+}
+
+Population Population::selection()
+{
+    Population pop1(0,0);
+    pop1.size = size;
+    int temp;
+    for(int i=0; i < size; i++)
+    {
+        temp = rand() % size;
+        pop1.specimens.push_back(specimens[temp]);
+    }
+    return pop1;
+
+}
+
 void Population::mutate(vector <bool> &v1)
 {
     int el = rand() % v1.size();

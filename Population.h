@@ -15,7 +15,9 @@ class Population
     Population(int population_size, int card_quantity); //initialise population
     void print();
     int return_size();
-    void selection();
+    Population selection();
+    void singleCrossover(int number);
+    void singleCrossover();//crossover in half
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);
     void mutate(vector <bool> &v1);
 };
