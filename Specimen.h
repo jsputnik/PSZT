@@ -7,14 +7,20 @@ using namespace std;
 
 class Specimen
 {
-    public:
-    vector < bool > element;
-    float grade;
-
+    double grade; //max of match_level_a & match_level_b, the closer to 0 the better
+    double sum_a;
+    double product_b;
+    double match_level_a;
+    double match_level_b;
 public:
-    Specimen(int card_quantity); //initialise a single specimen
-    void gradeMe();
+    vector < bool > element;
+
+    Specimen(int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise a single specimen
+    Specimen(int card_quantity, int a, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise a special specimen, to be deleted
     void print();
+    void calculate_scores(); //calculate sum_a, product_b
+    void calculate_match_levels(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate match_level_a, match_level_b, grade
+    void calculate(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate_scores() & calculate_match_levels(), use to fill all doubles
 };
 
 #endif // SPECIMEN_H_INCLUDED
