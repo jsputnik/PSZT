@@ -8,8 +8,8 @@ class Population
 {
     public:
     vector < Specimen > specimens;
-    vector < int > mutationProbability;
-
+   // vector < int > mutationProbability;
+    int mutationProbability;
     public:
     Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise and grade population
     void print();

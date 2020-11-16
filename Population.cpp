@@ -2,12 +2,13 @@
 #include <iostream>
 
 Population::Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal) {
-    int temp = 100;
+   // int temp = 100;
+   mutationProbability = 10;
     for (int i = 0; i < population_size; ++i) {
         Specimen spec(card_quantity, sum_a_goal, product_b_goal, match_level_goal);
         specimens.push_back(spec);
-        mutationProbability.push_back(temp);
-        temp *= 0.8;
+        //mutationProbability.push_back(temp);
+        //temp *= 0.8;
     }
 }
 
@@ -64,7 +65,6 @@ void Population::singleCrossover()
 Population Population::selection(double sum_a_goal, double product_b_goal, double match_level_goal)
 {
     Population pop1(0,0, sum_a_goal, product_b_goal, match_level_goal);
-    //pop1.specimens.size() = specimens.size();
     int temp;
     for(int i=0; i < specimens.size(); i++)
     {
@@ -77,6 +77,7 @@ Population Population::selection(double sum_a_goal, double product_b_goal, doubl
 void Population::mutate(vector <bool> &v1)
 {
     int el = rand() % v1.size();
-    if( rand() % 100 <= mutationProbability[el])
+
+    if( rand() % 100 <= mutationProbability)
         v1[el] = !v1[el];
 }
