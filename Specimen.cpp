@@ -47,6 +47,14 @@ Specimen::Specimen(int card_quantity, int a, double sum_a_goal, double product_b
     calculate(sum_a_goal, product_b_goal, match_level_goal);
 }
 
+void Specimen::mutate(vector <float> mutationProbability)
+{
+    int el = rand() % element.size();
+
+    if( rand() % 100 <= mutationProbability[el])
+        element[el] = !element[el];
+}
+
 Specimen& Specimen::operator=(const Specimen& spec) {
     element = spec.element;
     grade = spec.grade;

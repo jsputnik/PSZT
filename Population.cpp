@@ -12,17 +12,15 @@ Population& Population::operator=(const Population& pop) {
 }
 
 Population::Population() {
-    mutationProbability = 0;
+
 }
 
-Population::Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal) {
-   // int temp = 100;
-   mutationProbability = 10;
+Population::Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal, float baseMutationProbability, int crossoverProbability) {
+   this->baseMutationProbability = baseMutationProbability;
+   this->crossoverProbability = crossoverProbability;
     for (int i = 0; i < population_size; ++i) {
         Specimen spec(card_quantity, sum_a_goal, product_b_goal, match_level_goal);
         specimens.push_back(spec);
-        //mutationProbability.push_back(temp);
-        //temp *= 0.8;
     }
 }
 
@@ -72,7 +70,8 @@ void Population::singleCrossover(int number)
 {
     for(unsigned int i=0; i<(specimens.size()/2); i++)
     {
-        crossover(specimens[2*i].element, specimens[2*i+1].element, number);
+        if(rand() % 100 < crossoverProbability)
+            crossover(specimens[2*i].element, specimens[2*i+1].element, number);
     }
 }
 
@@ -81,7 +80,8 @@ void Population::singleCrossover()
     int number = specimens.size()/2;
     for(unsigned int i=0; i<(specimens.size()/2); i++)
     {
-        crossover(specimens[2*i].element, specimens[2*i+1].element, number);
+        if(rand() % 100 < crossoverProbability)
+            crossover(specimens[2*i].element, specimens[2*i+1].element, number);
     }
 }
 
@@ -97,10 +97,18 @@ Population Population::selection()
     return pop1;
 }
 
-void Population::mutate(vector <bool> &v1)
+void Population::calculateMutationProbability(float baseMutationProbability)
 {
-    int el = rand() % v1.size();
+    for (int i = 0; i < specimens.size(); i++) {
+        mutationProbability.push_back(baseMutationProbability);
+        baseMutationProbability *= 0.8;
+    }
+}
 
-    if( rand() % 100 <= mutationProbability)
-        v1[el] = !v1[el];
+void Population::mutate()
+{
+    calculateMutationProbability(baseMutationProbability);
+    for (int i = 0; i < specimens.size(); i++) {
+        specimens[i].mutate(mutationProbability);
+    }
 }

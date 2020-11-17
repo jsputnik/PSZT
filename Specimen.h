@@ -24,6 +24,7 @@ public:
     void calculate_match_levels(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate match_level_a, match_level_b, grade
     void calculate(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate_scores() & calculate_match_levels(), use to fill all doubles
     double get_grade() const;
+    void mutate(vector <float> mutationProbability);
 };
 
 #endif // SPECIMEN_H_INCLUDED
