@@ -57,7 +57,7 @@ Specimen& Specimen::operator=(const Specimen& spec) {
     return *this;
 }
 
-double Specimen::get_grade() {
+double Specimen::get_grade() const {
     return grade;
 }
 

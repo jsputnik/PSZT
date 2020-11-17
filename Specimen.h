@@ -23,7 +23,7 @@ public:
     void calculate_scores(); //calculate sum_a, product_b
     void calculate_match_levels(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate match_level_a, match_level_b, grade
     void calculate(double sum_a_goal, double product_b_goal, double match_level_goal); //calculate_scores() & calculate_match_levels(), use to fill all doubles
-    double get_grade();
+    double get_grade() const;
 };
 
 #endif // SPECIMEN_H_INCLUDED
