@@ -2,6 +2,7 @@
 #include <cmath>
 
 using namespace std;
+
 /*****************************************
  _______________________________
 |Card Value  | 1 | 2 | ... | N  |
@@ -17,6 +18,14 @@ Specimen::Specimen(int card_quantity, double sum_a_goal, double product_b_goal, 
     calculate(sum_a_goal, product_b_goal, match_level_goal);
 }
 
+Specimen::Specimen() {
+    grade = 0;
+    sum_a = 0;
+    product_b = 0;
+    match_level_a = 0;
+    match_level_b = 0;
+    ;
+}
 //making a special case divisions, all cards on A (a = 0) or all on B (a = 1)
 Specimen::Specimen(int card_quantity, int a, double sum_a_goal, double product_b_goal, double match_level_goal) {
     if (a == 0) {
@@ -38,7 +47,22 @@ Specimen::Specimen(int card_quantity, int a, double sum_a_goal, double product_b
     calculate(sum_a_goal, product_b_goal, match_level_goal);
 }
 
+Specimen& Specimen::operator=(const Specimen& spec) {
+    element = spec.element;
+    grade = spec.grade;
+    sum_a = spec.sum_a;
+    product_b = spec.product_b;
+    match_level_a = spec.match_level_a;
+    match_level_b = spec.match_level_b;
+    return *this;
+}
+
+double Specimen::get_grade() {
+    return grade;
+}
+
 void Specimen::print() {
+    cout << "|";
     for (unsigned int i = 0; i < element.size(); ++i) {
         cout << element[i] << "|";
     }

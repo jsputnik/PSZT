@@ -10,12 +10,22 @@ int main() {
     srand(time(nullptr));
     double sum_a_goal = 50;
     double product_b_goal = 3000;
-    double match_level_goal = 0.93;
+    double match_level_goal = 0.1;
 
-    //vector <Population> population_list;
     Population pop(5, 10, sum_a_goal, product_b_goal, match_level_goal);
-    //population_list.push_back(pop);
     pop.print();
+    Specimen best_spec;
+    best_spec = pop[pop.find_best()];
+    cout << "Best specimen of population: " << endl;
+    best_spec.print();
+    Population pop_after_selection;
+    Population pop_after_crossing_and_mutating;
+    pop_after_selection = pop.selection();
+    cout << "After selection" << endl;
+    pop_after_selection.print();
+    //while (best_spec.get_grade() > match_level_goal) {}
+    //pop[pop.find_best()].print();
+    /*
     Population nowa(0,0, sum_a_goal, product_b_goal, match_level_goal);
     nowa = pop.selection(sum_a_goal, product_b_goal, match_level_goal);
     cout<<"after selection"<<endl;
@@ -38,8 +48,7 @@ int main() {
         nowa.specimens[i].calculate(sum_a_goal, product_b_goal, match_level_goal);
     }
     nowa.print();
-    //Specimen spec(10, sum_a_goal, product_b_goal, match_level_goal);
-    //spec.print();
+    */
 
     return 0;
 }

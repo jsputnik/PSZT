@@ -1,6 +1,20 @@
 #include "Population.h"
 #include <iostream>
 
+const Specimen& Population::operator[](int index) {
+    return specimens[index];
+}
+
+Population& Population::operator=(const Population& pop) {
+    specimens = pop.specimens;
+    mutationProbability = pop.mutationProbability;
+    return *this;
+}
+
+Population::Population() {
+    mutationProbability = 0;
+}
+
 Population::Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal) {
    // int temp = 100;
    mutationProbability = 10;
@@ -22,6 +36,15 @@ void Population::print() {
     for (unsigned int i = 0; i < specimens.size(); ++i) {
         specimens[i].print();
     }
+}
+int Population::find_best() {
+    int best_index = 0;
+    for (unsigned int i = 1; i < specimens.size(); ++i) {
+        if (specimens[i].get_grade() < specimens[best_index].get_grade()) {
+            best_index = i;
+        }
+    }
+    return best_index;
 }
 
 void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
@@ -47,7 +70,7 @@ void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
 
 void Population::singleCrossover(int number)
 {
-    for(int i=0; i<(specimens.size()/2); i++)
+    for(unsigned int i=0; i<(specimens.size()/2); i++)
     {
         crossover(specimens[2*i].element, specimens[2*i+1].element, number);
     }
@@ -56,17 +79,17 @@ void Population::singleCrossover(int number)
 void Population::singleCrossover()
 {
     int number = specimens.size()/2;
-    for(int i=0; i<(specimens.size()/2); i++)
+    for(unsigned int i=0; i<(specimens.size()/2); i++)
     {
         crossover(specimens[2*i].element, specimens[2*i+1].element, number);
     }
 }
 
-Population Population::selection(double sum_a_goal, double product_b_goal, double match_level_goal)
+Population Population::selection()
 {
-    Population pop1(0,0, sum_a_goal, product_b_goal, match_level_goal);
+    Population pop1;
     int temp;
-    for(int i=0; i < specimens.size(); i++)
+    for(unsigned int i=0; i < specimens.size(); i++)
     {
         temp = rand() % specimens.size();
         pop1.specimens.push_back(specimens[temp]);
