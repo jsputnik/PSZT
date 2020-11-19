@@ -63,7 +63,6 @@ void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
     }
     reverse(v2.begin(), v2.end());
     v2.insert(v2.begin(), temp.begin(), temp.begin() + number);
-
 }
 
 void Population::singleCrossover(int number)
