@@ -24,7 +24,6 @@ Specimen::Specimen() {
     product_b = 0;
     match_level_a = 0;
     match_level_b = 0;
-    ;
 }
 //making a special case divisions, all cards on A (a = 0) or all on B (a = 1)
 Specimen::Specimen(int card_quantity, int a, double sum_a_goal, double product_b_goal, double match_level_goal) {

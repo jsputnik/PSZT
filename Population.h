@@ -17,13 +17,14 @@ class Population
     Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal, float baseMutationProbability, int crossoverProbability); //initialise and grade population
     void print();
     Population selection();
+    Population tourney_selection();
     void singleCrossover(int number);
     void singleCrossover();//crossover in half
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);
     void mutate();
     void calculateMutationProbability(float baseMutationProbability);
     void update_population(double sum_a_goal, double product_b_goal, double match_level_goal); //use to fill/update all of specimen's fields in whole population
-    int find_best(); //findsm best specimen of population
+    int find_best(); //finds index of the best specimen in the population
     const Specimen& operator[](int index); //returns Specimen from given index
     Population& operator=(const Population& pop);
 };

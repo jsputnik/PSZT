@@ -15,7 +15,7 @@ class Specimen
 public:
     vector < bool > element;
 
-    Specimen();
+    Specimen(); //empty specimen
     Specimen(int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise a single specimen
     Specimen(int card_quantity, int a, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise a special specimen, to be deleted
     Specimen& operator=(const Specimen& spec);

@@ -85,21 +85,38 @@ void Population::singleCrossover()
     }
 }
 
+Population Population::tourney_selection() {
+    Population pop;
+    int j;
+    int k;
+    for (unsigned int i = 0; i < specimens.size(); ++i) {
+        j = rand() % specimens.size();
+        k = rand() % specimens.size();
+        if (specimens[j].get_grade() < specimens[k].get_grade()) {
+            pop.specimens.push_back(specimens[j]);
+        }
+        else {
+            pop.specimens.push_back(specimens[k]);
+        }
+    }
+    return pop;
+}
+
 Population Population::selection()
 {
-    Population pop1;
+    Population pop;
     int temp;
     for(unsigned int i=0; i < specimens.size(); i++)
     {
         temp = rand() % specimens.size();
-        pop1.specimens.push_back(specimens[temp]);
+        pop.specimens.push_back(specimens[temp]);
     }
-    return pop1;
+    return pop;
 }
 
 void Population::calculateMutationProbability(float baseMutationProbability)
 {
-    for (int i = 0; i < specimens.size(); i++) {
+    for (unsigned int i = 0; i < specimens.size(); i++) {
         mutationProbability.push_back(baseMutationProbability);
         baseMutationProbability *= 0.8;
     }
@@ -108,7 +125,7 @@ void Population::calculateMutationProbability(float baseMutationProbability)
 void Population::mutate()
 {
     calculateMutationProbability(baseMutationProbability);
-    for (int i = 0; i < specimens.size(); i++) {
+    for (unsigned int i = 0; i < specimens.size(); i++) {
         specimens[i].mutate(mutationProbability);
     }
 }
