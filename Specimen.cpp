@@ -98,6 +98,7 @@ void Specimen::calculate_match_levels(double sum_a_goal, double product_b_goal, 
     match_level_a = abs(sum_a_goal - sum_a)/sum_a_goal;
     match_level_b = abs(product_b_goal - product_b)/product_b_goal;
     grade = max(match_level_a, match_level_b);
+    //grade = match_level_a+ match_level_b;
 }
 
 void Specimen::calculate(double sum_a_goal, double product_b_goal, double match_level_goal) {
