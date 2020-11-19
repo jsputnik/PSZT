@@ -65,6 +65,46 @@ void Population::crossover(vector <bool> &v1, vector <bool> &v2, int number)
     v2.insert(v2.begin(), temp.begin(), temp.begin() + number);
 }
 
+void Population::crossover2(vector <bool> &v1, vector <bool> &v2, int number1, int number2)
+{
+    vector <bool> tempF;
+    vector <bool> tempB;
+    number2-=2;
+    tempF.insert(tempF.end(), v1.begin(), v1.begin() + number1);
+    tempB.insert(tempB.end(), v1.begin()+ number2, v1.end());
+
+    for(int i = number2; i<v1.size(); i++)
+    {
+        v1.pop_back();
+    }
+    reverse(v1.begin(), v1.end());
+    for(int i = 0; i<number1; i++)
+    {
+        v1.pop_back();
+    }
+    reverse(v1.begin(), v1.end());
+
+    v1.insert(v1.begin(), v2.begin(), v2.begin() + number1);
+    v1.insert(v1.end(), v2.begin()+number2, v2.end());
+
+    for(int i = number2; i<v2.size(); i++)
+    {
+        v2.pop_back();
+    }
+    reverse(v2.begin(), v2.end());
+
+    for(int i = 0; i<number1; i++)
+    {
+        v2.pop_back();
+    }
+    reverse(v2.begin(), v2.end());
+
+    v2.insert(v2.begin(), tempF.begin(), tempF.end());
+
+    v2.insert(v2.end(), tempB.begin(), tempB.end());
+
+}
+
 void Population::singleCrossover(int number)
 {
     for(unsigned int i=0; i<(specimens.size()/2); i++)
@@ -81,6 +121,15 @@ void Population::singleCrossover()
     {
         if(rand() % 100 < crossoverProbability)
             crossover(specimens[2*i].element, specimens[2*i+1].element, number);
+    }
+}
+
+void Population::doubleCrossover(int number1, int number2)
+{
+    for(unsigned int i=0; i<(specimens.size()/2); i++)
+    {
+        if(rand() % 100 < crossoverProbability)
+            crossover2(specimens[2*i].element, specimens[2*i+1].element, number1, number2);
     }
 }
 

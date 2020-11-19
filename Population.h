@@ -19,8 +19,10 @@ class Population
     Population selection();
     Population tourney_selection();
     void singleCrossover(int number);
+    void doubleCrossover(int number1, int number2);
     void singleCrossover();//crossover in half
     void crossover(vector <bool> &v1, vector <bool> &v2, int number);
+    void crossover2(vector <bool> &v1, vector <bool> &v2, int number1, int number2);
     void mutate();
     void calculateMutationProbability(float baseMutationProbability);
     void update_population(double sum_a_goal, double product_b_goal, double match_level_goal); //use to fill/update all of specimen's fields in whole population
