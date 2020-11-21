@@ -2,4 +2,4 @@
 *.depend
 obj/
 bin/
-*.txt
+t1.txt

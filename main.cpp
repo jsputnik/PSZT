@@ -15,6 +15,8 @@ int main() {
     double match_level_goal = 0.3;
     float baseMutationProbability = 100;
     int crossoverProbability = 100;
+    int numberOfSpeciemens = 200;
+    int n = 100;
     fstream plik;
     plik.open("t1.txt", ios::out);
     if(!plik)
@@ -23,7 +25,7 @@ int main() {
 		return 1;
 	}
 	plik<<"Generation Grade"<<endl;
-    Population pop(100, 200, sum_a_goal, product_b_goal, match_level_goal, baseMutationProbability, crossoverProbability);
+    Population pop(numberOfSpeciemens, n, sum_a_goal, product_b_goal, match_level_goal, baseMutationProbability, crossoverProbability);
   //  pop.print();
     Specimen best_spec; //best of all time
     Specimen spec; //best of ith population
@@ -64,7 +66,7 @@ int main() {
         spec = pop[pop.find_best()]; //just this line without if if want to look at best spec from each population
        //// cout << "Best specimen of population " << i << ": " << endl;
        //// spec.print();
-        long double x = spec.get_grade();
+        double x = spec.get_grade();
         plik <<i+1<<" "<<x<<endl;
         if (best_spec.get_grade() > spec.get_grade()) {
             best_spec = spec;
@@ -78,5 +80,14 @@ int main() {
     float time = (clock() - start) / 1000.000;
     cout<<"Time: "<<time<<" s" <<endl;
     plik.close();
+    fstream plik2;
+    plik2.open("time.txt", ios::app);
+    if(!plik2)
+	{
+		cout << "Unable to open file";
+		return 1;
+	}
+	plik2<<sum_a_goal<<" "<<product_b_goal<<" "<<match_level_goal<<" "<<baseMutationProbability<<" "<<crossoverProbability<<" "<<numberOfSpeciemens<<" "<<n<<" "<<time<<endl;
+	plik2.close();
     return 0;
 }
