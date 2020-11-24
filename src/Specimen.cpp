@@ -3,13 +3,6 @@
 
 using namespace std;
 
-/*****************************************
- _______________________________
-|Card Value  | 1 | 2 | ... | N  |
-|____________|___|___|_____|____|
-|A (0) B (1) | 0 | 1 | ... | 1  |
-|____________|___|___|_____|____|
-*****************************************/
 Specimen::Specimen(int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal) {
     for (int i = 0; i < card_quantity; ++i) {
         int value = rand() % 2;
@@ -24,26 +17,6 @@ Specimen::Specimen() {
     product_b = 0;
     match_level_a = 0;
     match_level_b = 0;
-}
-//making a special case divisions, all cards on A (a = 0) or all on B (a = 1)
-Specimen::Specimen(int card_quantity, int a, double sum_a_goal, double product_b_goal, double match_level_goal) {
-    if (a == 0) {
-        for (int i = 0; i < card_quantity; ++i) {
-            element.push_back(0);
-        }
-    }
-    else if (a == 1) {
-        for (int i = 0; i < card_quantity; ++i) {
-            element.push_back(1);
-        }
-    }
-    else {
-        for (int i = 0; i < card_quantity; ++i) {
-            int value = rand() % 2;
-            element.push_back(value);
-        }
-    }
-    calculate(sum_a_goal, product_b_goal, match_level_goal);
 }
 
 void Specimen::mutate(vector <float> mutationProbability)
@@ -79,6 +52,26 @@ void Specimen::print() {
     cout << "Match level A: " << match_level_a << ", ";
     cout << "Match level B: " << match_level_b << ", ";
     cout << "Grade: " << grade << endl;
+    vector <int> a_stack;
+    vector <int> b_stack;
+    for (unsigned int i = 0; i < element.size(); ++i) {
+        if (element[i] == 0) {
+            a_stack.push_back(i + 1);
+        }
+        else {
+            b_stack.push_back(i + 1);
+        }
+    }
+    cout << "Cards on A: ";
+    for (unsigned int i = 0; i < a_stack.size(); ++i) {
+        cout << a_stack[i] << "; ";
+    }
+    cout << endl;
+    cout << "Cards on B: ";
+    for (unsigned int i = 0; i < b_stack.size(); ++i) {
+        cout << b_stack[i] << "; ";
+    }
+    cout << endl;
 }
 
 void Specimen::calculate_scores() {
@@ -93,12 +86,11 @@ void Specimen::calculate_scores() {
         }
     }
 }
-//the closer to 0 the better
+
 void Specimen::calculate_match_levels(double sum_a_goal, double product_b_goal, double match_level_goal) {
     match_level_a = abs(sum_a_goal - sum_a)/sum_a_goal;
     match_level_b = abs(product_b_goal - product_b)/product_b_goal;
     grade = max(match_level_a, match_level_b);
-    //grade = match_level_a+ match_level_b;
 }
 
 void Specimen::calculate(double sum_a_goal, double product_b_goal, double match_level_goal) {
