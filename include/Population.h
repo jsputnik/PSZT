@@ -13,19 +13,19 @@ class Population
     float baseMutationProbability;
 
     public:
-    Population();
-    Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal, float baseMutationProbability, int crossoverProbability); //initialise and grade population
-    void print();
-    Population selection(); // random selection
-    Population tourney_selection();
-    void singleCrossover(int number);
-    void doubleCrossover(int number1, int number2);
-    void singleCrossover();//crossover in half
-    void crossover(vector <bool> &v1, vector <bool> &v2, int number);
-    void crossover2(vector <bool> &v1, vector <bool> &v2, int number1, int number2);
+    Population(); //empty population
+    Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal, float baseMutationProbability, int crossoverProbability); //initialize and grade population
+    void print(); //used to print all the specimens in population
+    Population selection(); //random selection
+    Population tourney_selection(); //tourney selection
+    void singleCrossover(int number); //one point crossover in number
+    void doubleCrossover(int number1, int number2); //two point crossover in number1 and number2
+    void singleCrossover(); //one point crossover in half
+    void crossover(vector <bool> &v1, vector <bool> &v2, int number); //used in singleCrossover()
+    void crossover2(vector <bool> &v1, vector <bool> &v2, int number1, int number2); //used in doubleCrossover
     void mutate();
     void calculateMutationProbability(float baseMutationProbability);
-    void update_population(double sum_a_goal, double product_b_goal, double match_level_goal); //use to fill/update all of specimen's fields in whole population
+    void update_population(double sum_a_goal, double product_b_goal, double match_level_goal); //use to fill/update all of Specimen's attributes in whole population
     int find_best(); //finds index of the best specimen in the population
     const Specimen& operator[](int index); //returns Specimen from given index
     Population& operator=(const Population& pop);
