@@ -25,7 +25,7 @@ Dopasowanie B = |aspiracjaB - iloczynB| / aspiracjaB
 # Domyślne ustawienia
 Domyślnie są ustawione:
 - selekcja turniejowa
-- krzyżowanie dwupunktowe z losowymi punktami krzyżowania dla każdej krzyżowanej pary
+- krzyżowanie dwupunktowe z losowymi punktami krzyżowania dla każdej krzyżowanej pary\
 Ewentualnych zmian selekcji/krzyżowań należy dokonywac w kodzie
 
 
