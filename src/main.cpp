@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
     cout << "Match level goal: " << match_level_goal << endl << endl;
     float baseMutationProbability = 100;
     int crossoverProbability = 100;
-    int numberOfSpecimens = 200;
+    int numberOfSpecimens = 6;
     fstream plik;
     plik.open("t1.txt", ios::out);
     if(!plik)
@@ -61,7 +61,6 @@ int main(int argc, char* argv[]) {
             pop_after_crossing.doubleCrossover(n2, n1);
         //pop_after_crossing.singleCrossover(); //one point crossing with set cross point
         pop_after_crossing.update_population(sum_a_goal, product_b_goal, match_level_goal);
-        cout << "bp" << endl;
         pop_after_mutating = pop_after_crossing;
         pop_after_mutating.mutate();
         pop_after_mutating.update_population(sum_a_goal, product_b_goal, match_level_goal);
