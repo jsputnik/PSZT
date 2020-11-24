@@ -7,16 +7,22 @@
 
 using namespace std;
 
-int main() {
+//number of cards N, sum A, product B, match level goal G
+int main(int argc, char* argv[]) {
     clock_t start = clock();
     srand(time(nullptr));
-    double sum_a_goal = 19400;
-    double product_b_goal = 6.89557e+197;
-    double match_level_goal = 0.3;
+    if (argc != 5) {
+        cout << "Incorrect number of parameters given" << endl;
+        return 1;
+    }
+    int n = atoi(argv[1]);
+    double sum_a_goal = atof(argv[2]); //19400
+    double product_b_goal = atof(argv[3]); //6.89557e+197
+    double match_level_goal = atof(argv[4]); //0.3
+    cout << n << ", " << sum_a_goal << ", " << product_b_goal << ", " << match_level_goal << endl;
     float baseMutationProbability = 100;
     int crossoverProbability = 100;
     int numberOfSpeciemens = 200;
-    int n = 100;
     fstream plik;
     plik.open("t1.txt", ios::out);
     if(!plik)
@@ -26,7 +32,7 @@ int main() {
 	}
 	plik<<"Generation Grade"<<endl;
     Population pop(numberOfSpeciemens, n, sum_a_goal, product_b_goal, match_level_goal, baseMutationProbability, crossoverProbability);
-  //  pop.print();
+    //pop.print();
     Specimen best_spec; //best of all time
     Specimen spec; //best of ith population
     best_spec = pop[pop.find_best()];
@@ -77,7 +83,7 @@ int main() {
     //pop.print();
     cout << "Best specimen: " << endl;
     best_spec.print();
-    float time = (clock() - start) / 1000.000;
+    float time = (clock() - start) / 1000000.000;
     cout<<"Time: "<<time<<" s" <<endl;
     plik.close();
     fstream plik2;

@@ -2,4 +2,6 @@
 *.depend
 obj/
 bin/
-t1.txt
+build/
+*.txt
+

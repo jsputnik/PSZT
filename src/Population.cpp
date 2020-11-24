@@ -73,7 +73,7 @@ void Population::crossover2(vector <bool> &v1, vector <bool> &v2, int number1, i
     tempF.insert(tempF.end(), v1.begin(), v1.begin() + number1);
     tempB.insert(tempB.end(), v1.begin()+ number2, v1.end());
 
-    for(int i = number2; i<v1.size(); i++)
+    for(unsigned int i = number2; i<v1.size(); i++)
     {
         v1.pop_back();
     }
@@ -87,7 +87,7 @@ void Population::crossover2(vector <bool> &v1, vector <bool> &v2, int number1, i
     v1.insert(v1.begin(), v2.begin(), v2.begin() + number1);
     v1.insert(v1.end(), v2.begin()+number2, v2.end());
 
-    for(int i = number2; i<v2.size(); i++)
+    for(unsigned int i = number2; i<v2.size(); i++)
     {
         v2.pop_back();
     }

@@ -27,5 +27,3 @@ Domyślnie są ustawione:
 - selekcja turniejowa
 - krzyżowanie dwupunktowe z losowymi punktami krzyżowania dla każdej krzyżowanej pary\
 Ewentualnych zmian selekcji/krzyżowań należy dokonywać w kodzie
-
-
