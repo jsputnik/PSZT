@@ -16,7 +16,7 @@ class Population
     Population();
     Population(int population_size, int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal, float baseMutationProbability, int crossoverProbability); //initialise and grade population
     void print();
-    Population selection();
+    Population selection(); // random selection
     Population tourney_selection();
     void singleCrossover(int number);
     void doubleCrossover(int number1, int number2);

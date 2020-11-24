@@ -13,7 +13,7 @@ class Specimen
     double match_level_a;
     double match_level_b;
 public:
-    vector < bool > element;
+    vector < bool > element; // vector of cards
 
     Specimen(); //empty specimen
     Specimen(int card_quantity, double sum_a_goal, double product_b_goal, double match_level_goal); //initialise a single specimen
