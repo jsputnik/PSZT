@@ -10,7 +10,7 @@ Max (dopasowanie A, dopasowanie B)\
 Dopasowanie A = |aspiracjaA - sumaA| / aspiracjaA\
 Dopasowanie B = |aspiracjaB - iloczynB| / aspiracjaB
 
-# Zastosowane selekcje:
+# Zastosowane selekcje
 - losowa
 - turniejowa
 
