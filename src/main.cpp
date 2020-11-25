@@ -16,9 +16,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     int n = atoi(argv[1]);
-    double sum_a_goal = atof(argv[2]); //19400
-    double product_b_goal = atof(argv[3]); //6.89557e+197
-    double match_level_goal = atof(argv[4]); //0.3
+    double sum_a_goal = atof(argv[2]);
+    double product_b_goal = atof(argv[3]);
+    double match_level_goal = atof(argv[4]);
     cout << "Number of cards N: " << n << endl;
     cout << "Sum A goal: " << sum_a_goal << endl;
     cout << "Product B goal: " << product_b_goal << endl;
