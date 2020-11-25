@@ -1,4 +1,5 @@
 # Algorytm genetyczny
+Aktualna wersja jest na gałęzi main, działa ona po podaniu parametrów wywołania na konsoli.
 
 # Treść zadania
 MM.AG3 Podział kart na 2 stosy
