@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
     clock_t start = clock();
     srand(time(nullptr));
-    if (argc != 5) {
+    if (argc != 6) {
         cout << "Incorrect number of parameters given" << endl;
         return 1;
     }
@@ -19,13 +19,14 @@ int main(int argc, char* argv[]) {
     double sum_a_goal = atof(argv[2]);
     double product_b_goal = atof(argv[3]);
     double match_level_goal = atof(argv[4]);
+    int numberOfSpecimens = atoi(argv[5]);
     cout << "Number of cards N: " << n << endl;
     cout << "Sum A goal: " << sum_a_goal << endl;
     cout << "Product B goal: " << product_b_goal << endl;
-    cout << "Match level goal: " << match_level_goal << endl << endl;
+    cout << "Match level goal: " << match_level_goal << endl;
+    cout << "Number of speciemens: " << numberOfSpecimens << endl << endl;
     float baseMutationProbability = 100;
     int crossoverProbability = 100;
-    int numberOfSpecimens = 6;
     fstream plik;
     plik.open("t1.txt", ios::out);
     if(!plik)
@@ -79,6 +80,8 @@ int main(int argc, char* argv[]) {
     float time = (clock() - start) / 1000000.000;
     cout<<"Time: "<<time<<" s" <<endl;
     plik.close();
+    
+    
     fstream plik2;
     plik2.open("time.txt", ios::app);
     if(!plik2)
@@ -86,7 +89,10 @@ int main(int argc, char* argv[]) {
 		cout << "Unable to open file";
 		return 1;
 	}
-	plik2<<sum_a_goal<<" "<<product_b_goal<<" "<<match_level_goal<<" "<<baseMutationProbability<<" "<<crossoverProbability<<" "<<numberOfSpecimens<<" "<<n<<" "<<time<<endl;
+	if(i == 1000)
+		plik2<<sum_a_goal<<" "<<product_b_goal<<" "<<match_level_goal<<" "<<baseMutationProbability<<" "<<crossoverProbability<<" "<<numberOfSpecimens<<" "<<n<<" "<< numberOfSpecimens<<" "<<"max_iter"<<endl;
+	else
+		plik2<<sum_a_goal<<" "<<product_b_goal<<" "<<match_level_goal<<" "<<baseMutationProbability<<" "<<crossoverProbability<<" "<<numberOfSpecimens<<" "<<n<<" "<< numberOfSpecimens<<" "<<time<<endl;
 	plik2.close();
     return 0;
 }
